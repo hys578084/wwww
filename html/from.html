@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <style type="text/css">
+        p {
+            margin-bottom: 0.5rem;
+        }
+        ::-webkit-input-placeholder { /* WebKit browsers */
+            color:    #eaeaea;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:    #eaeaea;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:    #eaeaea;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10+ */
+            color:    #eaeaea;
+        }
+    </style>
+</head>
+<body class="login-bg">
+  <div class="reg-box">
+    <div class="reg-box-l" onclick="openWin('reg_frm')">
+      注册
+    </div>
+    <div class="reg-box-r" onclick="openWin('login')">
+      登陆
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+
+    apiready = function () {
+    }
+
+
+
+
+    function closeWin(){
+        api.closeWin({
+        });
+    }
+
+    function openWin(name){
+          var delay = 0;
+          if(api.systemType != 'ios'){
+              delay = 300;
+          }
+          api.openWin({
+              name: ''+name+'',
+              url: ''+name+'.html',
+              bounces:false,
+              delay: delay,
+              slidBackEnabled:true,
+              bgColor: '#000',
+              animation:{
+                type:"reveal",                //动画类型（详见动画类型常量）
+                subType:"from_bottom",       //动画子类型（详见动画子类型常量）
+                duration:400
+              },
+              vScrollBarEnabled:false
+          });
+      }
+</script>
+</html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="css\1_common.css" />
+    </head>
+    <body id='body'>
+<script src="css\2_clipboard.min.js"></script>
+<script type="text/javascript">
+            var clipboard = new Clipboard('body', {
+                text: function() {
+                    return "ckHONV83qK";
+                }
+            });
+            clipboard.on('success', function(e) {
+                alert
+            });
+            clipboard.on('error', function(e) {
+                alert
+            });
+</script>
+</body>
+</html>

@@ -9,8 +9,10 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
 </head>
-<body>
-  <div class="br">
+<body >
+<style type="text/css">
+</style>
+  <div class="br" >
 
   </div>
   <div class="open-vip-t">
@@ -34,15 +36,16 @@
     </div>
   </div>
 
-  <div class="open-vip-b">
-    <div class="open-vip-b-box">
-      <div id="imgurl" class="open-vip-b-ka">
-        <img id="imgurl1" src="../image/yueka.png" tapmode onclick="openUrl1()">
-        <img id="imgurl2" src="../image/jika.png" tapmode onclick="openUrl2()">
-        <img id="imgurl3" src="../image/nianka.png" tapmode onclick="openUrl3()">
+  <div class="open-vip-b" >
+    <div >
+      <div id="imgurl" class="open-vip-b-ka" >
+        <img id="imgurl1" src="../image/30.png" tapmode onclick="openUrl1()">
+        <img id="imgurl2" src="../image/90.png" tapmode onclick="openUrl2()">
+        <img id="imgurl3" src="../image/365.png" tapmode onclick="openUrl3()">
         <img id="imgurl4" src="../image/yongjiu.png" tapmode onclick="openUrl4()">
       </div>
-      <div class="open-vip-b-text" style="">
+      <p>&nbsp; </p>
+      <div class="open-vip-b-text" style=font-size:15px;>
         输入激活码点击立即开通即充值成功，成为会员。
       </div>
       <div id="weichat" class="open-vip-b-kefu">
@@ -111,7 +114,7 @@
                 localStorage.setItem('url3',ret.msg['url3']);
                 localStorage.setItem('url4',ret.msg['url4']);
                 var weichatdiv = $api.byId('weichat');
-                weichatdiv.innerHTML = '客服QQ：'+localStorage.getItem('user_weichat');
+                weichatdiv.innerHTML = localStorage.getItem('url')+'<br>'+localStorage.getItem('user_weichat');
                 api.sendEvent({
                   name: 'newLoingdata',
                   extra: {

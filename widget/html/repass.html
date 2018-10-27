@@ -82,35 +82,35 @@
       var lao_pswd = localStorage.getItem('password');
       if(username == ''){
         api.alert({
-            title: '调皮~',
+            title: '警告！~',
             msg: '请输入登录账号',
         });
         return;
       }
       if(yzcode == ''){
         api.alert({
-            title: '调皮~',
+            title: '警告！~',
             msg: '请输入验证码',
         });
         return;
       }
       if(password == ''){
         api.alert({
-            title: '调皮~',
+            title: '警告！~',
             msg: '请输入密码',
         });
         return;
       }
       if(username.length != 11){
         api.alert({
-            title: '调皮~',
+            title: '警告！~',
             msg: '请输入11位手机号码',
         });
         return;
       }
       if(username.length < 6){
         api.alert({
-            title: '调皮~',
+            title: '警告！~',
             msg: '请输入6位以上密码',
         });
         return;
@@ -188,7 +188,7 @@
 
       if(username == ''){
         api.alert({
-            title: '调皮~',
+            title: '警告！~',
             msg: '请输入手机号码',
         });
         onoff = true;
@@ -196,7 +196,7 @@
       }
       if(username.length != 11){
         api.alert({
-            title: '调皮~',
+            title: '警告！~',
             msg: '请输入11位手机号码',
         });
         onoff = true;
@@ -240,7 +240,7 @@
     function getApicode(username,content) {
       var btn1 = $api.byId('btn1');
       api.ajax({
-          url: 'http://v.juhe.cn/sms/send?mobile='+username+'&tpl_id=95202&tpl_value='+content+'&key=1cb88dde3dd72e2dc75e7fd12e0116d5',
+          url: 'http://v.juhe.cn/sms/send?mobile='+username+'&tpl_id=89421&tpl_value='+content+'&key=d9f3a1f1e84da36d5614a44f4371393d',
           method: 'get'
       },function(ret, err){
               api.toast({

@@ -629,7 +629,7 @@ button, .aui-btn {
 	text-decoration: none;
 	text-align: center;
 	margin: 0;
-	background: #f5611a;
+		background: #f5611a;
 	padding: 0 0.6rem;
 	height: 1.5rem;
 	line-height: 1.5rem;
@@ -1267,7 +1267,7 @@ color: #eaeaea;
 /*宫格布局*/
 .aui-grid {
 	width: 100%;
-	background-color: #ffffff;
+	background-color: rgba(255, 255, 255, 0.2) !important;
 	display: table;
 	table-layout: fixed;
 }
@@ -1457,8 +1457,8 @@ color: #eaeaea;
 .aui-bar-nav {
 	top: 0;
 	line-height: 2.25rem;
-	background-color: #fff;
-	color: #333;
+	background-color: #6405da;
+	color: #FFF;
 }
 .aui-title a {
 	color: inherit;

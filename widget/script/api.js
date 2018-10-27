@@ -3,6 +3,7 @@
  * Copyright (c) 2014 apicloud.com
  */
 (function(window){
+    //修改成自己的网址 201806290624
     var u = {};
     var isAndroid = (/android/gi).test(navigator.appVersion);
     var uzStorage = function(){

@@ -209,7 +209,7 @@
       var content = escape('#code#='+code_data);
       //alert(content);
       api.ajax({
-          url: 'http://192.168.123.30/login/login/yzcode.html',
+          url: 'http://ceshi.wd321.cn/login/login/yzcode.html',
           method: 'get',
           data: {
               values: {
@@ -240,33 +240,34 @@
       return rnd;
     }
 
-    function getApicode(username,content) {
-      var btn1 = $api.byId('btn1');
-      api.ajax({
-          url: 'http://v.juhe.cn/sms/send?mobile='+username+'&tpl_id=95202&tpl_value='+content+'&key=1cb88dde3dd72e2dc75e7fd12e0116d5',
-          method: 'get'
-      },function(ret, err){
-              api.toast({
-                  msg: '发送成功',
-                  duration: 1000,
-                  location: 'middle'
-              });
-              var nuw = 120;
-              var timer = setInterval(function(){
-                nuw --;
-
-                if (nuw < 1) {
-                  btn1.innerHTML = '获取';
-                  clearInterval(timer);
-                  onoff = true;
-                }else {
-                  btn1.innerHTML = nuw+'s';
-                }
-
-
-              },1000)
-      });
-    }
+     function getApicode(username,content) {
+          var btn1 = $api.byId('btn1');
+          api.ajax({
+              url: 'http://v.juhe.cn/sms/send?mobile='+username+'&tpl_id=89421&tpl_value='+content+'&key=d9f3a1f1e84da36d5614a44f4371393d',
+							//url:'http://api.jisuapi.com/sms/send?mobile='+username+'&content=尊敬的会员，您的验证码:'+content+'。您正在注册会员，10分钟内有效。【桔子影视】&appkey=f697d12839657b6b',
+              method: 'get'
+          },function(ret, err){
+                  api.toast({
+                      msg: '发送成功',
+                      duration: 1000,
+                      location: 'middle'
+                  });
+                  var nuw = 120;
+                  var timer = setInterval(function(){
+                    nuw --;
+    
+                    if (nuw < 1) {
+                      btn1.innerHTML = '获取';
+                      clearInterval(timer);
+                      onoff = true;
+                    }else {
+                      btn1.innerHTML = nuw+'s';
+                    }
+    
+    
+                  },1000)
+          });
+        }
 
 
 

@@ -1,27 +1,4 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head> 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <link rel="stylesheet" type="text/css" href="css\1_common.css" />
-    </head>
-    <body id='body'>
-<script src="css\2_clipboard.min.js"></script>
-<script type="text/javascript">
-            var clipboard = new Clipboard('body', {
-                text: function() {
-                    return "ckHONV83qK";
-                }
-            });
-            clipboard.on('success', function(e) {
-                alert
-            });
-            clipboard.on('error', function(e) {
-                alert
-            });
-</script>
-</body>
-</html>
 <html style="font-size: 50px;">
 <head>
     <meta charset="utf-8">
@@ -52,7 +29,7 @@
     		<ul>
     			<li>在本页面复制邀请链接或二维码发送给微信或QQ好友</li>
     			<li>好友使用链接后您将获得对应积分（在我的-积分里可随时查看积分余额）</li>
-    			<li>在获取积分后您可以在APP积分页面兑换全网VIP时长</li>
+    			<li>在获取积分后您可以在APP积分页面兑换新版演示全网VIP</li>
     		</ul>
     	</div>
   </div>
@@ -84,10 +61,10 @@
         if (ret) {
             copy = ret.msg;
             shama = ret.share;
-            // var url = $api.byId('url');
-            // var share = $api.byId('share');
-            // url.innerHTML = '<img src="http://qr.liantu.com/api.php?text='+ret.msg+'"/>';
-            // share.innerHTML = ret.share;
+             var url = $api.byId('url');
+             var share = $api.byId('share');
+             url.innerHTML = '<img src="http://qr.liantu.com/api.php?text='+ret.msg+'"/>';
+             share.innerHTML = ret.share;
             api.hideProgress();
 
         } else {
@@ -156,13 +133,13 @@
 
   function copySet(){
     api.ajax({
-        url: 'http://api.t.sina.com.cn/short_url/shorten.json?source=3271760578&url_long='+copy,
+        url: 'http://suo.im/api.php?url=http://192.168.123.30'+copy,
         method: 'get'
     },function(ret, err){
         if (ret) {
           var clipBoard = api.require('clipBoard');
           clipBoard.set({
-              value: '【VIP影视】全网VIP视频无广告免费看，APP下载地址：'+ret[0].url_short
+              value: '【新版演示】全网VIP视频免费看，高清无广告，再也不用充值会员啦！APP下载地址：'+ret[0].url_short
           }, function(ret, err) {
               if (ret) {
                 api.toast({
@@ -176,7 +153,7 @@
         } else {
           var clipBoard = api.require('clipBoard');
           clipBoard.set({
-              value: '【VIP影视】全网VIP视频无广告免费看，APP下载地址：'+copy
+              value: '【新版演示】全网VIP视频免费看，高清无广告，再也不用充值会员啦！APP下载地址：'+copy
           }, function(ret, err) {
               if (ret) {
                 api.toast({

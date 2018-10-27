@@ -31,13 +31,13 @@
       <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
           <span class="aui-iconfont aui-icon-left"></span>
       </a>
-      <div id="title" class="aui-title">登陆</div>
+      <div id="title" class="aui-title">账号登录</div>
   </header>
 
   <div class="myui-from">
     <ul class="myui-from-list">
       <li class="myui-from-list-item">
-        <input type="tel" minlength="11" maxlength="11" id="username" placeholder="请输入手机号" class="myui-from-list-item-input" value ="">
+        <input type="tel" minlength="11" maxlength="11" id="username" placeholder="请输入账号" class="myui-from-list-item-input" value ="">
       </li>
       <li class="myui-from-list-item">
         <input id="password" type="password" placeholder="请输入密码" class="myui-from-list-item-input" value ="">
@@ -52,7 +52,7 @@
       找回密码
     </div>
     <div class="to-login-l" tapmode onclick="openWin('reg_frm')">
-      去注册
+      注册账号
     </div>
   </div>
 </body>
@@ -119,21 +119,21 @@
 
         if(username == ''){
           api.alert({
-              title: '调皮~',
+              title: '警告！',
               msg: '请输入登录账号',
           });
           return;
         }
         if(password == ''){
           api.alert({
-              title: '调皮~',
+              title: '警告！',
               msg: '请输入密码',
           });
           return;
         }
         api.showProgress({
             title: '登陆中...',
-            text: '请稍等...',
+            text: '请骚等...',
             modal: false
         });
         api.closeWin({

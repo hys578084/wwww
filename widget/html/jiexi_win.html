@@ -1,27 +1,4 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head> 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <link rel="stylesheet" type="text/css" href="css\1_common.css" />
-    </head>
-    <body id='body'>
-<script src="css\2_clipboard.min.js"></script>
-<script type="text/javascript">
-            var clipboard = new Clipboard('body', {
-                text: function() {
-                    return "ckHONV83qK";
-                }
-            });
-            clipboard.on('success', function(e) {
-                alert
-            });
-            clipboard.on('error', function(e) {
-                alert
-            });
-</script>
-</body>
-</html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -32,24 +9,20 @@
     <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
 </head>
 <body>
-  <header class="aui-bar aui-bar-nav" id="aui-header">
-      <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
-          <span class="aui-iconfont aui-icon-left"></span>返回
+  <header class="aui-bar aui-bar-nav" id="aui-header" style="background:#720eee;font-size:16px">
+      <a class="aui-btn aui-pull-left"  tapmode onclick="closeWin() "style="color:#FFF">
+          <span class="aui-iconfont aui-icon-left" style="color:#FFF"> </span>返回
       </a>
-      <a class="aui-btn aui-pull-left" tapmode onclick="closeWd()">
+      <a class="aui-btn aui-pull-left" tapmode onclick="closeWd()"style="color:#FFF" >
           关闭
       </a>
-      <div id="title" class="aui-title">VIP影视</div>
-      <a id="play" class="aui-btn aui-pull-right" style="color:#ff5722 !important;font-weight:bold" tapmode onclick="huanxian()">
-          播放
+      <div id="title" class="aui-title" style="color:#FFF">新版演示</div>
+      <a id="play" class="aui-btn aui-pull-right" style="color:#fff000 !important;font-weight:bold" tapmode onclick="huanxian()">
+           点此播放
       </a>
-      <a id="play" class="aui-btn aui-pull-right" tapmode onclick="jieXi()">
-          换线
-      </a>
+
 
   </header>
-
-
 
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
@@ -70,15 +43,6 @@
       $api.fixStatusBar(header);
       var headerPos = $api.offset(header);
       var body_h = $api.offset($api.dom('body')).h;
-
-
-      //支付宝口令复制
-      var clipBoard = api.require('clipBoard');
-      clipBoard.set({
-          value: 'FRd81Z66zm'
-      }, function(ret, err) {
-
-      });
 
 
       var user_id = localStorage.getItem('user_id');
@@ -171,7 +135,7 @@
 
                dataurl = ret.url;
                dataurl2 = dataurl;
-               //alert(dataurl2);
+
                var txurlc = dataurl2.split(":");
                var txurl = txurlc[1].slice(0,12);
                var ykurl = txurlc[1].slice(0,13);
@@ -200,11 +164,11 @@
              }
              if (txurl=='//m.v.qq.com') {
                var txdata = dataurl2;
-               //var txget = new winsx(dataurl2);
+
                var vid = getParam('vid');
                var txdata2 = dataurl2.split("?");
                var cid = txdata2[0].slice(-20,-5)
-               //alert(vid);
+
 
                if (vid.length == 11) {
                  dataurl2 = 'https://v.qq.com/x/cover/'+cid+'/'+vid+'.html';
@@ -243,8 +207,32 @@
                  return;
                }
 
-               
 
+/*               var dialogBox = api.require('dialogBox');
+                dialogBox.discount({
+                    rect: {
+                        w: api.winWidth,
+                        h: api.winHeight
+
+                    },
+                    styles: {
+                        bg: 'rgba(0,0,0,0.0)',
+                        image: {
+                            path: 'widget://image/tishi.png',
+                            marginB: 0
+                        }
+                    }
+                }, function(ret) {
+                    //alert(JSON.stringify(ret));
+                    if (ret.eventType == 'image') {
+                      onoff = false;
+                        dialogBox.close({
+                            dialogName: 'discount'
+                        });
+                        huanxian();
+                    }
+                });
+*/
 
 
              }else {
@@ -258,15 +246,14 @@
               case 2:
                   break;
               case 3:
-
               var title = $api.byId('title');
-              title.innerHTML = 'VIP影视';
-                  break;
+              title.innerHTML = ret.title;
+              break;
               case 4:
                   break;
               default:
               var title = $api.byId('title');
-              title.innerHTML = 'VIP影视';
+              title.innerHTML = ret.title;
                   break;
           };
 
@@ -280,13 +267,80 @@
       //         x: 0,
       //         y: headerPos.h,
       //         w: api.winWidth,
-      //         h: 300
+      //         h: 290
       //     },
-      //
+
       //     pageParam:{id:api.pageParam.id}
       // });
 
-    
+
+
+      var dialogBox = api.require('dialogBox');
+      dialogBox.taskPlan({
+          rect: {
+              w: 300,
+              h: 350
+          },
+          texts: {
+              mainTitle: '如何播放视频？',
+              subTitle: '找到你要观看的电影或者电视剧，打开播放页面，然后在播放页面点击右上角的【点击播放】即可。如果视频无法播放，请点击右上角的【更换线路】进行解决。',
+              content: [{
+                  text: '步骤1.打开你要观看的视频页面'
+              }, {
+                  text: '步骤2.点击右上角的【点击播放】'
+              }],
+              btnTitle: '点此关闭提示'
+          },
+          styles: {
+              bg: '#fff',
+              corner: 5,
+              main: {
+                  marginT: 10,
+                  color: '#FF3366',
+                  size: 16,
+                  bold: true,
+              },
+              sub: {
+                  marginT: 8,
+                  color: '#999999',
+                  size: 16,
+              },
+              content: [{
+                  bg: '#FF3366',
+                  marginT: 10,
+                  w: 280,
+                  h: 30,
+                  align: 'center',
+                  color: '#FFF',
+                  size: 14
+              }, {
+                  bg: '#FF3366',
+                  marginT: 10,
+                  w: 280,
+                  h: 30,
+                  align: 'center',
+                  color: '#FFF',
+                  size: 14
+              }],
+              ok: {
+                  marginB: 10,
+                  marginL: 20,
+                  w: 280,
+                  h: 40,
+                  bg: '#fff',
+                  color: '#FF3366',
+                  size: 15
+              }
+          }
+      }, function(ret) {
+          //alert(JSON.stringify(ret));
+          if (ret.eventType == 'ok') {
+              var dialogBox = api.require('dialogBox');
+              dialogBox.close({
+                  dialogName: 'taskPlan'
+              });
+          }
+      });
 
 
 
@@ -301,14 +355,95 @@
       return obj;
     }
 
- function closeWd(){
-      api.closeWin({
+    function closeWin(){
+      api.setScreenOrientation({
+          orientation: 'portrait_up'
       });
-  }
+      var browser = api.require('webBrowser');
+      browser.historyBack(
+        function(ret, err) {
+            if (!ret.status) {
+              var dialogBox = api.require('dialogBox');
+              dialogBox.raffle({
+                  texts: {
+                      subText: '播放是否异常？',
+                      leftTitle: '是[反馈]',
+                      rightTitle: '否[退出]'
+                  },
+                  styles: {
+                      bg: '#fff',
+                      w: 300,
+                      icon: {
+                          marginT: 0,
+                          w: 300,
+                          h: 150,
+                          iconPath: 'widget://image/exitback.jpg'
+                      },
+                      main: {
+                          marginT: 0,
+                          color: '#636363',
+                          size: 13
+                      },
+                      sub: {
+                          marginT: 0,
+                          color: '#999999',
+                          size: 14
+                      },
+                      left: {
+                          marginB: 7,
+                          marginL: 18,
+                          w: 130,
+                          h: 35,
+                          corner: 2,
+                          bg: '#fff',
+                          color: '#007FFF',
+                          size: 15
+                      },
+                      right: {
+                          marginB: 7,
+                          marginL: 18,
+                          w: 130,
+                          h: 35,
+                          corner: 2,
+                          bg: '#fff',
+                          color: '#007FFF',
+                          size: 15
+                      }
+                  }
+              }, function(ret, err) {
+                  if (ret.eventType == 'left') {
+                      var dialogBox = api.require('dialogBox');
+                      dialogBox.close({
+                          dialogName: 'raffle'
+                      });
+                      api.toast({
+                          msg: '反馈提交成功！我们会尽快修复',
+                          duration: 3000,
+                          location: 'middle'
+                      });
+
+                  }else if (ret.eventType == 'right'){
+                    var dialogBox = api.require('dialogBox');
+                    dialogBox.close({
+                        dialogName: 'raffle'
+                    });
+                    api.clearCache(function() {
+
+                    });
+
+                    api.closeWin();
+                  }
+              });
+                //api.closeWin();
+
+            }
+        }
+      );
+    }
 
     function jieXi(){
       api.actionSheet({
-          title: 'VIP影视VIP线路',
+          title: '新版演示VIP线路',
           cancelTitle: '取消',
           buttons: ['VIP线路1', 'VIP线路2', 'VIP线路3', 'VIP线路4', 'VIP线路5']
       }, function(ret, err) {
@@ -335,7 +470,7 @@
 
 
     function huanxian(){
-      //alert(dataurl2);
+
       var user_id = localStorage.getItem('user_id');
       if(user_id<1){
         api.alert({
@@ -364,38 +499,7 @@
 
     function playVideo(){
       api.hideProgress();
-      // api.ajax({
-      //     url: 'http://api.icaijie.cn/',
-      //     method: 'get',
-      //     data: {
-      //         values: {
-      //             a: 'api',
-      //             apikey: '4f38a68f37a38267',
-      //             url: dataurl2
-      //         }
-      //     }
-      // },function(ret, err){
-      //     if (ret) {
-      //       api.hideProgress();
-      //       alert( JSON.stringify( ret ) );
-      //       var delay = 0;
-      //       if(api.systemType != 'ios'){
-      //           delay = 300;
-      //       }
-      //       api.openWin({
-      //           name: 'jiexi_play_win',
-      //           url: 'jiexi_play_win.html',
-      //           bounces:false,
-      //           delay: delay,
-      //           slidBackEnabled:true,
-      //           vScrollBarEnabled:false,
-      //           pageParam:{video:ret.result.files,url:dataurl2}
-      //       });
-      //     } else {
-      //       api.hideProgress();
-      //         alert( JSON.stringify( err ) );
-      //     }
-      // });
+
 
         var systemType = api.systemType;
         if (systemType == 'android') {
@@ -403,13 +507,13 @@
               name: 'play_win',
               url: './play_win.html',
               delay: 300,
-              pageParam:{url:jx_url1+dataurl2},
+              pageParam:{url:'http://47.96.125.28/jiexi/index.php?url='+dataurl2},
               bgColor: '#000000'
           });
         }else {
           var browser = api.require('webBrowser');
           browser.open({
-              url: jx_url1+dataurl2,
+              url: 'http://47.96.125.28/jiexi/index.php?url='+dataurl2,
               titleBar: {
                 visible: true
               }
@@ -427,6 +531,20 @@
 
     }
 
+    function closeWin(){
+      var browser = api.require('webBrowser');
+      browser.historyBack(
+        function(ret, err) {
+            if (!ret.status) {
+                api.closeWin();
+            }
+        }
+      );
+    }
+
+    function closeWd(){
+      api.closeWin();
+    }
 
 
 
@@ -472,6 +590,6 @@
 
 
 
-
 </script>
+
 </html>

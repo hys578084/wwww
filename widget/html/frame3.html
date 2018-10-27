@@ -1,27 +1,4 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head> 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <link rel="stylesheet" type="text/css" href="css\1_common.css" />
-    </head>
-    <body id='body'>
-<script src="css\2_clipboard.min.js"></script>
-<script type="text/javascript">
-            var clipboard = new Clipboard('body', {
-                text: function() {
-                    return "ckHONV83qK";
-                }
-            });
-            clipboard.on('success', function(e) {
-                alert
-            });
-            clipboard.on('error', function(e) {
-                alert
-            });
-</script>
-</body>
-</html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -32,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
     <style type="text/css">
+     html,body{background-image: url('pic_url');background-size:100% 100%;  }
         .text-white {
             color: #ffffff !important;
         }
@@ -41,6 +19,22 @@
         .iconfont{
           font-size: 1.5rem
         }
+		#user_bg{
+  position:fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:100%;
+  min-width: 1000px;
+  z-index:-10;
+  zoom: 1;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-position: center 0;
+}
     </style>
 </head>
 <body>
@@ -50,12 +44,11 @@
           <div class="user-box-1" tapmode onclick="toLogin()">
             <img src="../image/user_img.png">
           </div>
-          <div id="islogin" class="user-box-2" style="font-size:1rem;color:#8e726f;" onclick="toLogin()">
-              VIP影视
+          <div id="islogin" class="user-box-2" style="font-size:1rem;color:#ffffff;" onclick="toLogin()">
+              新版演示
           </div>
-          <div id="time" class="user-box-2" style="font-size:0.7rem;color:#ff5722;" onclick="toLogin()">
-            <!-- <i class="iconfont icon-huiyuan" style="font-size:0.7rem;color:#fff940"></i>
-            2018-03-01 15:00到期 -->
+          <div id="time" class="user-box-2" style="font-size:0.7rem;color:#ffffff;" onclick="toLogin()">
+
           </div>
 
         </div>
@@ -63,32 +56,70 @@
     <div class="br"></div>
     <section class="aui-grid aui-margin-b-15">
         <div class="aui-row">
-            <div class="aui-col-xs-4" onclick="openWin('open_vip_win')">
-                <div class="aui-dot"></div>
-                <i class="iconfont icon-wodeiconvip2"></i>
-                <div class="aui-grid-label">充值</div>
-            </div>
-            <div class="aui-col-xs-4" onclick="openWin('jifen_win')">
-                <i class="iconfont icon-jifen"></i>
-                <div class="aui-grid-label">积分</div>
-            </div>
-            <div class="aui-col-xs-4" onclick="openWin('share_win')">
-                <i class="iconfont icon-yaoqingma"></i>
-                <div class="aui-grid-label">邀请</div>
-            </div>
-            <div class="aui-col-xs-4" onclick="openWin('back_pwd')">
-                <i class="iconfont icon-mima54"></i>
-                <div class="aui-grid-label">修改密码</div>
-            </div>
-            <div class="aui-col-xs-4" onclick="kefu()">
-                <i class="iconfont icon-zaixianfuwuxian"></i>
-                <div class="aui-grid-label">联系客服</div>
-            </div>
-            <div class="aui-col-xs-4" onclick="openWin('shezhi_win')">
-                <i class="iconfont icon-shezhi"></i>
-                <div class="aui-grid-label">设置</div>
-            </div>
-        </div>
+
+          <div class="aui-col-xs-4" tapmode onclick="openWin('open_vip_win')">
+              <div id="videox" >
+              <i class="aui-grid-label"><img src="../image/app/chongzhi.png" /></i>
+              <div class="aui-grid-label">会员充值</div>
+              </div>
+              </div>
+
+              <div class="aui-col-xs-4" tapmode onclick="openWin('share_win')">
+                  <div id="videox" >
+                  <i class="aui-grid-label"><img src="../image/app/tuiguang.png"/></i>
+                  <div class="aui-grid-label">赚取积分</div>
+                  </div>
+                  </div>
+
+              <div class="aui-col-xs-4" tapmode onclick="openWin('jifen_win')">
+                      <div id="videox" >
+                      <i class="aui-grid-label"><img src="../image/app/jifen.png"/></i>
+                      <div class="aui-grid-label">积分兑换</div>
+                      </div>
+                      </div>
+
+              <div class="aui-col-xs-4" tapmode onclick="toBanner('http://192.168.123.30/login/login')">
+                      <div id="videox" >
+                      <i class="aui-grid-label"><img src="../image/app/daili.png"/></i>
+                      <div class="aui-grid-label">代理系统</div>
+                      </div>
+                      </div>
+
+              <div class="aui-col-xs-4" tapmode onclick="openWin('back_pwd')">
+                      <div id="videox" >
+                      <i class="aui-grid-label"><img src="../image/app/xiugaimima.png"/></i>
+                      <div class="aui-grid-label">修改密码</div>
+                      </div>
+                      </div>
+
+              <div class="aui-col-xs-4" tapmode onclick="openWin('shezhi_win')">
+                      <div id="videox" >
+                      <i class="aui-grid-label"><img src="../image/app/shezhi.png"/></i>
+                      <div class="aui-grid-label">其他设置</div>
+                      </div>
+                      </div>
+
+              <div class="aui-col-xs-4" tapmode onclick="checkUpdate()">
+                      <div id="videox" >
+                      <i class="aui-grid-label"><img src="../image/app/gengxin.png"/></i>
+                      <div class="aui-grid-label">检测更新</div>
+                      </div>
+                    </div>
+
+            <div class="aui-col-xs-4" tapmode onclick="cleaCache()">
+                          <div id="videox" >
+                          <i class="aui-grid-label"><img src="../image/app/qingchu.png"/></i>
+                          <div class="aui-grid-label">清除缓存</div>
+                          </div>
+                          </div>
+
+            <div class="aui-col-xs-4" tapmode onclick="window.open('./fengge.html','_self');">
+                    <div id="videox" >
+                    <i class="aui-grid-label"><img src="../image/app/qiehuan.png"/></i>
+                    <div class="aui-grid-label">切换风格</div>
+                    </div>
+                    </div>
+
     </section>
     <div class="br">
 
@@ -104,7 +135,7 @@
       api.parseTapmode();
       var appVersion = api.appVersion;
       var vsion = $api.byId('vsion');
-      vsion.innerHTML = 'VIP影视 v'+appVersion+' <span style="color:#7bbfea">免责声明</span>';
+      vsion.innerHTML = '新版演示 v'+appVersion+' <span style="color:#7bbfea">免责声明</span>';
       //监听重新获取客服联系方式广播
       api.addEventListener({
           name: 'newLoingdata'
@@ -131,7 +162,7 @@
         var dialogBox = api.require('dialogBox');
         dialogBox.alert({
             texts: {
-                content: localStorage.getItem('user_weichat'),
+                content: localStorage.getItem('url')+localStorage.getItem('user_weichat'),
                 leftBtnTitle: '知道了',
                 rightBtnTitle: '复制'
             },
@@ -239,54 +270,10 @@
       if (localStorage.getItem('user_id')<1) {
         time.innerHTML = '请先登陆';
       }
-      if (localStorage.getItem('user_id')>1) {
-        islogin.innerHTML = user_name;
+      if (localStorage.getItem('user_name')>1) {
+        islogin.innerHTML = '账号: '+user_name;
       }
 
-
-
-      // if (user_id>0) {
-      //
-      //   api.ajax({
-      //       url: api_url+'/login/login/sign.html',
-      //       method: 'get',
-      //       data: {
-      //           values: {
-      //               uid: user_id
-      //           }
-      //       }
-      //   },function(ret, err){
-      //       if (ret) {
-      //
-      //           shareid.innerHTML = ret.msg['share']+'<small> 分</small>';
-      //       } else {
-      //           alert('网络错误');
-      //       }
-      //   });
-      //
-      //
-      //   if (user_time>timestamp) {
-      //     invip.innerHTML = '<i class="iconfont icon-VIP" style="font-size:0.8rem;color:#fff940;"></i>VIP会员';
-      //     stime.innerHTML = time+'<small> 天</small>';
-      //
-      //
-      //   }else if (user_time == -1) {
-      //     invip.innerHTML = '<i class="iconfont icon-VIP" style="font-size:0.8rem;color:#fff940;"></i>永久VIP';
-      //     stime.innerHTML = '<small> 一万年</small>';
-      //   }else if (user_time<timestamp) {
-      //     stime.innerHTML = '<small> 已到期</small>';
-      //   }else if (time == 0) {
-      //     stime.innerHTML = '<small>体验卡</small>';
-      //   }
-      // }else {
-      //   islogin.style.display = "none";
-      //   no_login.style.display = "block";
-      //   invip.style.display = "none";
-      //   otbtn.style.display = "none";
-      //   indata.style.display = "none";
-      //   api.hideProgress();
-      //
-      // }
     }
 
 
@@ -347,6 +334,11 @@
 
     //退出登录
     function exitLogin(){
+      api.sendEvent({
+        name: 'newLoingdata',
+        extra: {
+        }
+      });
       api.showProgress({
           title: '稍后...',
           text: '正在退出...',
@@ -355,11 +347,155 @@
       localStorage.setItem('user_id','');
       localStorage.setItem('user_name','');
       localStorage.setItem('user_time','');
-
-
-      getData();
-
+      api.toast({
+          msg: '请重新登陆'
+      });
+      api.openWin({
+      });
 
     }
+
+      function openWin(name){
+            var delay = 0;
+            if(api.systemType != 'ios'){
+                delay = 300;
+            }
+            api.openWin({
+                name: ''+name+'',
+                url: ''+name+'.html',
+                bounces:false,
+                delay: delay,
+                slidBackEnabled:true,
+                vScrollBarEnabled:false
+            });
+        }
+
+
+    //清楚缓存
+    function cleaCache(){
+      api.clearCache(function() {
+          api.toast({
+              msg: '清除完成'
+          });
+          getCache();
+      });
+    }
+
+    //更新app  （在apicloud进行）
+
+    function checkUpdate() {
+  var mam = api.require('mam');
+  mam.checkUpdate(function(ret, err) {
+  if (ret) {
+    var result = ret.result;
+    if (result.update == true && result.closed == false) {
+        var str = '新版本号:' + result.version + ';\n更新提示:' + result.updateTip  //下载地址:' + ';发布时间:' + result.time; + result.source + '; 需要的可以加上去
+        api.confirm({
+            title : '有新的版本,是否下载并安装 ',
+            msg : str,
+            buttons : ['确定', '取消']
+        }, function(ret, err) {
+            if (ret.buttonIndex == 1) {
+                if (api.systemType == "android") {
+                    api.download({
+                        url : result.source,
+                        report : true
+                    }, function(ret, err) {
+                        if (ret && 0 == ret.state) {/* 下载进度 */
+                            api.toast({
+                                msg : "正在下载应用" + ret.percent + "%",
+                                duration : 2000
+                            });
+                        }
+                        if (ret && 1 == ret.state) {/* 下载完成 */
+                            var savePath = ret.savePath;
+                            api.installApp({
+                                appUri : savePath
+                            });
+                        }
+                    });
+                }
+                if (api.systemType == "ios") {
+                    api.installApp({
+                        appUri : result.source
+                    });
+                }
+            }
+        });
+    } else {
+        api.alert({
+            msg : "已是最新版，无需更新！"
+        });
+    }
+  } else {
+    api.alert({
+        msg : err.msg
+    });
+  }
+  });
+  }
+
 </script>
+
+<script type="text/javascript">
+
+
+  function imgUrl(img){
+    if (img=='img1') {
+      api.openWin({
+          name: 'h5',
+          url: './h5.html',
+          pageParam: {
+              url: localStorage.getItem('fxurl1')
+          }
+      });
+    }else {
+      api.openWin({
+          name: 'h5',
+          url: './h5.html',
+          pageParam: {
+              url: localStorage.getItem('fxurl2')
+          }
+      });
+    }
+
+  }
+
+
+  //访问轮播地址
+  function toBanner(url){
+
+    if (url == '') {
+
+    }else {
+      api.openWin({
+          name: 'h5',
+          url: './h5.html',
+          pageParam: {
+              url: url
+          }
+      });
+    }
+  }
+
+
+
+
+  //幻灯轮播图
+  function banNer(){
+    var slide = new auiSlide({
+        container:document.getElementById("aui-slide"),
+        // "width":300,
+        "height":150,
+        "speed":300,
+        "pageShow":true,
+        "autoPlay": 5000,
+        "pageStyle":'dot',
+        "loop":true,
+        'dotPosition':'center',
+    });
+  }
+
+</script>
+
 </html>

@@ -7,35 +7,32 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="../css/aui.css" />
     <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+	<style type="text/css">
+       html,body{background-color:#242424;}
+    </style>
 </head>
+
 <body>
-  <header class="aui-bar aui-bar-nav" id="aui-header">
+  <header class="aui-bar aui-bar-nav" id="header" style="background: linear-gradient(#883ddb, #883ddb);color:#fff;position: relative;padding-top:25px;">
       <a class="aui-btn aui-pull-left" tapmode onclick="closeWin()">
-          <span class="aui-iconfont aui-icon-left"></span>
+          <span class="aui-iconfont aui-icon-left" style=color:#fff ></span>
       </a>
-
-      <a id="play" class="aui-btn aui-pull-right" tapmode onclick="jieXi()">
-          换线
+      <div id="title" class="aui-title" >正在播放视频....</div>
+      <a id="play" class="aui-btn aui-pull-right" style=color:#fff tapmode onclick="jieXi()">
+          更换线路
       </a>
-
   </header>
 </body>
 <script type="text/javascript" src="../script/api.js" ></script>
 <script type="text/javascript">
-
-    var jx_url1 = localStorage.getItem('jx_url1');
-    var jx_url2 = localStorage.getItem('jx_url2');
-    apiready = function(){
-
+      var jx_url1 = localStorage.getItem('jx_url1');
+      var jx_url2 = localStorage.getItem('jx_url2');
+      apiready = function(){
       api.parseTapmode();
       var header = $api.byId('aui-header');
       $api.fixStatusBar(header);
       var headerPos = $api.offset(header);
       var body_h = $api.offset($api.dom('body')).h;
-
-
-
-
       api.addEventListener({
           name: 'keyback'
       }, function(ret, err) {
@@ -45,56 +42,23 @@
         api.closeWin();
       });
 
-      // var dialogBox = api.require('dialogBox');
-      // dialogBox.discount({
-      //     rect: {
-      //         w: 300,
-      //         h: 450
-      //     },
-      //     styles: {
-      //         bg: '#FFF',
-      //         image: {
-      //             path: 'widget://image/bofang.png',
-      //             marginB: 120
-      //         },
-      //         cancel: {
-      //             icon: 'widget://image/cancel_btn.png',
-      //             w: 40,
-      //             h: 40
-      //         }
-      //     }
-      // }, function(ret) {
-      //     //alert(JSON.stringify(ret));
-      //     if (ret.eventType == 'cancel') {
-      //         dialogBox.close({
-      //             dialogName: 'discount'
-      //         });
-      //     }
-      // });
-
-
       var browser = api.require('webBrowser');
       browser.openView({
           url: api.pageParam.url,
           rect: {
               x: 0,
-              y: 0,
+              y: 70,
               w: 'auto',
-              h: 'auto'
+              h: 'auto',
           }
       }, function(ret, err) {
-        // api.alert({
-        //     msg: JSON.stringify(ret)
-        // });
+
           switch (ret.state) {
               case 0:
                   break;
               case 1:
                   break;
               case 2:
-              api.setScreenOrientation({
-                  orientation: 'landscape_right'
-              });
                   break;
               case 3:
                   break;
@@ -103,26 +67,13 @@
               default:
                   break;
           };
-          //dataurl = getCaption(dataurl);
-          //alert(dataurl);
-          // if (ret.state==2) {
-          //   dataurl = ret.url;
-          //   state = 2;
-          // }
-          // if (ret.state==3) {
-          //   var title = $api.byId('title');
-          //   title.innerHTML = '<i class="iconfont icon-svip"></i>'+ret.title;
-          // }
-          // if (ret.state==4) {
-          //   dataurl = ret.url;
-          //   state = 2;
-          // }
 
 
       });
 
 
     }
+
 
     function getCaption(obj){
       var index=obj.lastIndexOf("\=");
@@ -139,54 +90,41 @@
 
     function jieXi(){
       api.actionSheet({
-          title: 'VIP影视VIP线路',
+          title: '新版演示VIP线路',
           cancelTitle: '取消',
-          buttons: ['VIP线路1', 'VIP线路2', 'VIP线路3', 'VIP线路4', 'VIP线路5', 'VIP线路6', 'VIP线路7', 'VIP线路8', 'VIP线路9']
+          buttons: ['VIP线路1', 'VIP线路2', 'VIP线路3', 'VIP线路4', 'VIP线路5']
       }, function(ret, err) {
           var index = ret.buttonIndex;
-          //alert( JSON.stringify( ret ) );
           if (ret.buttonIndex==1) {
-            vipHuanxian('http://www.jiudingkeji.cn/odflv/index.php?url=');
+            vipHuanxian(localStorage.getItem('jx_url2'));
           }
           if (ret.buttonIndex==2) {
-            vipHuanxian('http://jiudingkeji.cn/kkflv/player.php?url=');
+            vipHuanxian(localStorage.getItem('jx_url3'));
           }
           if (ret.buttonIndex==3) {
-            vipHuanxian('http://qmyouku.duapp.com/bofang.php?url=');
+            vipHuanxian(localStorage.getItem('jx_url4'));
           }
           if (ret.buttonIndex==4) {
-            vipHuanxian('http://jx.jp-z.cn/vip/?url=');
+            vipHuanxian(localStorage.getItem('jx_url5'));
           }
           if (ret.buttonIndex==5) {
-            vipHuanxian('http://zhjiexi.cn/jx.php?url=');
-          }
-          if (ret.buttonIndex==6) {
-            vipHuanxian('http://yun.mt2t.com/yun?url=');
-          }
-          if (ret.buttonIndex==7) {
-            vipHuanxian('http://api74.19ah.cn/play/play1.php?url=');
-          }
-          if (ret.buttonIndex==8) {
-            vipHuanxian('http://wapyo.cn/vip/jiexi.php?url=');
-          }
-          if (ret.buttonIndex==9) {
-            vipHuanxian('http://jx.vgoodapi.com/jx.php?url=');
+            vipHuanxian(localStorage.getItem('jx_url6'));
           }
       });
     }
-
 
 
     function vipHuanxian(jiekou){
       api.hideProgress();
       var browser = api.require('webBrowser');
       browser.loadUrl({
-          url: jiekou+api.pageParam.url
+          url: jiekou+api.pageParam.srcUrl
       });
     }
 
 
-
-
 </script>
+
+
+
 </html>
